@@ -27,17 +27,15 @@ class Interactive {
                 done = true
             case "h":
                 print("")
-                print("Type 'h' - help")
                 print("Type 'q' - quit")
-                print("Type 'addAnimal' - to add an Animal")
-                print("Type 'al' - for Animal Listing")
-                print("Type 'addPeople' - to add a Person")
-                print("Type 'pl' - for People Listing")
+                print("Type 'aA' - to add an Animal")
+                print("Type 'aL' - for Animal Listing")
+                print("Type 'rA' - to remove an Animal")
+                print("Type 'aP' - to add a Person")
+                print("Type 'pL' - for People Listing")
+                print("Type 'rP' - to remove a Person")
                 print("")
-            case "addAnimal":
-                
-                // get name of animal
-                // get id of animal
+            case "aA":   //this gets all info from the User to Add an Animal & calls the addAnimal Func
                 io.writeMessage("Enter the Animal Id")
                 currentInput = io.getInput()
                 let id: String = currentInput
@@ -51,9 +49,9 @@ class Interactive {
                 currentInput = io.getInput()
                 let location: String = currentInput
                 debsZoo.addAnimal(id:id, name:name, type:type, location:location)
-            case "al":
+            case "aL":  //this list all Animals that are currently in the zoo
                 debsZoo.listAllAnimals()
-            case "addPerson":
+            case "aP":  //this gets all info from the User to Add a Person & calls the addPerson Func
                 io.writeMessage("Enter the Person's Id")
                 currentInput = io.getInput()
                 let id: String = currentInput
@@ -61,14 +59,26 @@ class Interactive {
                 currentInput = io.getInput()
                 let name: String = currentInput
                 debsZoo.addPerson(id:id, name:name)
-            case "pl":
+            case "pL":  //this list all the People that are currently checked in to the Zoo
                 debsZoo.listAllPeople()
+            case "rA":   //this removes the Animal from the zoo dict. by id & calls the removeAnimal func
+                io.writeMessage("Please enter Animal Id")
+                currentInput = io.getInput()
+                let id: String = currentInput
+                debsZoo.removeAnimal(id:id)
+            case "rP":
+                io.writeMessage("Please enter Person Id")
+                currentInput = io.getInput()
+                let id: String = currentInput
+                debsZoo.removePerson(id:id)
                 
-               
-
+                
+                
             default:
                 io.writeMessage("Invalid Command")
             }
         }
     }
 }
+
+
