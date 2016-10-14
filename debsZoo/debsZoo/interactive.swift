@@ -22,10 +22,10 @@ class Interactive {
             io.writeMessage("Enter a command (h for help)")
             currentInput = io.getInput()
             
-            switch currentInput {
-            case "q":
+            switch currentInput.uppercased() {
+            case "q".uppercased():
                 done = true
-            case "h":
+            case "h".uppercased():
                 print("")
                 print("Type 'q' - quit")
                 print("Type 'aA' - to add an Animal")
@@ -34,43 +34,52 @@ class Interactive {
                 print("Type 'aP' - to add a Person")
                 print("Type 'pL' - for People Listing")
                 print("Type 'rP' - to remove a Person")
+                print("Type 'sA' - to get information on animals")
                 print("")
-            case "aA":   //this gets all info from the User to Add an Animal & calls the addAnimal Func
+            case "aA".uppercased():   //this gets all info from the User to Add an Animal & calls the addAnimal Func
                 io.writeMessage("Enter the Animal Id")
                 currentInput = io.getInput()
-                let id: String = currentInput
+                let id: String = currentInput.uppercased()
                 io.writeMessage("Enter the Animal Name")
                 currentInput = io.getInput()
-                let name: String = currentInput
+                let name: String = currentInput.uppercased()
                 io.writeMessage("Enter the Animal Type")
                 currentInput = io.getInput()
-                let type: String = currentInput
+                let type: String = currentInput.uppercased()
                 io.writeMessage("Enter the Animal Location")
                 currentInput = io.getInput()
-                let location: String = currentInput
+                let location: String = currentInput.uppercased()
                 debsZoo.addAnimal(id:id, name:name, type:type, location:location)
-            case "aL":  //this list all Animals that are currently in the zoo
+            case "aL".uppercased():  //this list all Animals that are currently in the zoo
                 debsZoo.listAllAnimals()
-            case "aP":  //this gets all info from the User to Add a Person & calls the addPerson Func
+            case "aP".uppercased():  //this gets all info from the User to Add a Person
                 io.writeMessage("Enter the Person's Id")
                 currentInput = io.getInput()
-                let id: String = currentInput
+                let id: String = currentInput.uppercased()
                 io.writeMessage("Enter the Person's Name")
                 currentInput = io.getInput()
-                let name: String = currentInput
-                debsZoo.addPerson(id:id, name:name)
-            case "pL":  //this list all the People that are currently checked in to the Zoo
+                let name: String = currentInput.uppercased()
+                io.writeMessage("Enter Visitor or Employee")
+                currentInput = io.getInput()
+                let type: String = currentInput.uppercased()
+                debsZoo.addPerson(id:id, name:name, type:type)
+            case "pL".uppercased():  //this list all the People that are currently checked in to the Zoo
                 debsZoo.listAllPeople()
-            case "rA":   //this removes the Animal from the zoo dict. by id & calls the removeAnimal func
+            case "rA".uppercased():   //this removes the Animal from the zoo dict. by id
                 io.writeMessage("Please enter Animal Id")
                 currentInput = io.getInput()
-                let id: String = currentInput
+                let id: String = currentInput.uppercased()
                 debsZoo.removeAnimal(id:id)
-            case "rP":
+            case "rP".uppercased(): //this removes the Person from the zoo dict. by id
                 io.writeMessage("Please enter Person Id")
                 currentInput = io.getInput()
-                let id: String = currentInput
+                let id: String = currentInput.uppercased()
                 debsZoo.removePerson(id:id)
+            case "sA".uppercased():  //this gets specific animal information 
+                io.writeMessage("Please enter Animal Name")
+                currentInput = io.getInput()
+                let name: String = currentInput.uppercased()
+                debsZoo.displayAnimalInfo(name:name)
                 
                 
                 

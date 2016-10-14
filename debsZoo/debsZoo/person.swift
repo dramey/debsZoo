@@ -10,22 +10,27 @@ import Foundation
 class Person {
     var id: String
     var name: String
-    
+    var type: String
     //Make an initializer for a person object
-    init(id: String, name: String) {
+    init(id: String, name: String, type: String) {
         self.id = id
         self.name = name
+        self.type = type
     }
+
 }
-
-
 class Visitor: Person {
-    
-    
-}
+    override init(id: String, name: String, type: String) {
+        super.init(id: id, name: name, type: type)
+            self.type = "Visitor"
+        }
+    }
 
 class Employee: Person {
-    //var isEmployee = true
-    
+    override init(id: String, name: String, type: String) {
+        super.init(id: id, name: name, type: type)
+        self.type = "Employee"
+    }
     
 }
+

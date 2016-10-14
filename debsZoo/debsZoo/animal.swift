@@ -25,33 +25,33 @@ class Animal {
     }
 }
 
-class Reptile: Animal {
-    var eatingMethod: String
-    
+class AmAndRep: Animal {
     override init(id: String, name: String, type: String, location: String) {
-        eatingMethod = "Hand"
         super.init(id: id, name: name, type: type, location: location)
+        self.type = "Amphibian/Reptile"
+        self.location = "It is a Reptile and Amphibian World - On The East Side of the Zoo"
     }
 }
 
 class Aquatic: Animal {
-    var eatingMethod: String
 
     override init(id: String, name: String, type: String, location: String) {
-        eatingMethod = "Tossing stuff in water"
         super.init(id: id, name: name, type: type, location: location)
+        self.type = "Water Animals"
+        self.location = "Water World - on the WestSide of the Zoo "
     }
-}
-    
-class Mammal: Animal {
-    var eatingMethod: String
-    
-    override init(id: String, name: String, type: String, location: String) {
-        eatingMethod = "Throwing meat in cage"
-        super.init(id: id, name: name, type: type, location: location)
     }
-  
-    
+class Birds: Animal {
+        
+        override init(id: String, name: String, type: String, location: String) {
+            super.init(id: id, name: name, type: type, location: location)
+            self.type = "Winged Animals"
+            self.location = "FLY HIGH - The NorthSide of the Zoo "
+        }
+
 }
+
+
+
 
 
